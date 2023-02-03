@@ -19,6 +19,12 @@
     "slug": {
       "type": "uid",
       "targetField": "name"
+    },
+    "portfolios": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::portfolio.portfolio",
+      "mappedBy": "category"
     }
   }
 }
