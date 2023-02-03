@@ -16,7 +16,7 @@ const HomePage = () => {
         {data.data.map(item => (
             <div key={item.id}>
             <h2>{item.attributes.title}</h2>
-            <p>{item.attributes.description}</p>
+            <p>{item.attributes.description.substring(0,150)}</p>
             <Link to={`/portfolio/${item.id}`}>View</Link>
             </div>
         ))}
