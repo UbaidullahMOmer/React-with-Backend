@@ -4,10 +4,10 @@ import useFetch from '../hooks/useFetch'
 
 const SinglePortfolio = () => {
     const { id } = useParams();
-    const { loading, error, data } = useFetch('http://localhost:3000/portfolio/' + id)
-    console.log("dsd",data)
-    if (loading) return <div>Loading...</div>
-    if (error) return <div>Error...</div>
+    const { loading, error, data } = useFetch('http://localhost:3000/portfolio/' + 1)
+    // console.log("dsd",data)
+    // if (loading) return <div>Loading...</div>
+    // if (error) return <div>Error...</div>
 
     return (
         <div>
