@@ -8,7 +8,7 @@ const HomePage = () => {
     console.log("dftgdg",data)
     if (loading) return <div>Loading...</div>
     if (error) return <div>Errhhhor...</div>
-
+ 
   return (
     <div>
         <>
