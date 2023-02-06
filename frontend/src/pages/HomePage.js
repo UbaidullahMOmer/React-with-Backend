@@ -17,7 +17,7 @@ const PORTFOLIOS = gql`
   `
 
 const HomePage = () => {
-  const { loading, error, data } = useFetch('http://localhost:1337/api/portfolios')
+  const { loading, error, data } = useQuery(PORTFOLIOS)
 
   console.log("dftgdg", data)
   if (loading) return <div>Loading...</div>
