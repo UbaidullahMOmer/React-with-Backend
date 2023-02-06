@@ -7,6 +7,7 @@ const PORTFOLIOS = gql`
     query GetPortfolios{
      portfolios{
       data{
+        id
         attributes{
          title,
          description
