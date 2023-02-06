@@ -16,7 +16,7 @@ const SinglePortfolio = () => {
         <>
         <h1>SinglePortfolio</h1>
         <h2>{data.data.attributes.title}</h2>
-        <img src={`http://localhost:1337${data.data.attributes.image.data.attributes.url}`}/>
+        <img alt="description of image" src={`http://localhost:1337${data.data.attributes.image.data.attributes.url}`}/>
         <span>{data.data.attributes.date}</span>
         <p>{data.data.attributes.description}</p>
         </>

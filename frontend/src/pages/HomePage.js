@@ -1,5 +1,5 @@
 import React from 'react'
-import useFetch from '../hooks/useFetch'
+// import useFetch from '../hooks/useFetch'
 import { Link } from "react-router-dom"
 import {useQuery, gql } from '@apollo/client'
 
@@ -27,7 +27,7 @@ const HomePage = () => {
     <div>
       <>
         <h1>Home Page</h1>
-        {data.data.map(item => (
+        {data.portfolios.data.map(item => (
           <div key={item.id}>
             <h2>{item.attributes.title}</h2>
             <p>{item.attributes.description.substring(0, 150)}</p>
