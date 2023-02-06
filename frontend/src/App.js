@@ -6,7 +6,7 @@ import SinglePortfolio from './pages/SinglePortfolio';
 import HomePage from "./pages/HomePage"
 import Tag from "./pages/Tag"
 import Category from "./pages/Category"
-
+import { ApolloProvider } from '@apollo/client';
 function App() {
   
   return (
