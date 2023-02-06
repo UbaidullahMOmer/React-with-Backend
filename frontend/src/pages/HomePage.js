@@ -1,7 +1,20 @@
 import React from 'react'
 import useFetch from '../hooks/useFetch'
 import { Link } from "react-router-dom"
-import { gql } from '@apollo/client'
+import {useQuery, gql } from '@apollo/client'
+
+const PORTFOLIOS = gql`
+    query GetPortfolios{
+     portfolios{
+      data{
+        attributes{
+         title,
+         description
+        }
+      }
+    }
+  }
+  `
 
 const HomePage = () => {
   const { loading, error, data } = useFetch('http://localhost:1337/api/portfolios')
