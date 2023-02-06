@@ -1,7 +1,7 @@
 import {ApolloClient, InMemoryCache} from '@apollo/client'
 
-const client = new ApolloClientf({
-    uri : `${process.env.REACT-APP-ADMIN-BASE-URL}/graphql`,
+const client = new ApolloClient({
+    uri: `${process.env.REACT_APP_ADMIN_BASE_URL}/graphql`,
     cache: new InMemoryCache()
 })
 export default client
