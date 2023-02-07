@@ -1,41 +1,49 @@
 import React from 'react'
-import {useParams} from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import useFetch from '../hooks/useFetch'
-import {useQuery, gql } from '@apollo/client'
+import { useQuery, gql } from '@apollo/client'
 
-const PORTFOLIOS = gql`
-query GetPortfolios{
- portfolios{
+const PORTFOLIO = gql`
+query GetPortfolios($id: ID!) {
+ portfolio(id: $id) {
   data{
-    id
+    id,
     attributes{
      title,
-     description
+     description,
+     image{
+      data{
+        attributes{
+          url
+        }
+      }
+     },
+     date
     }
   }
 }
 }
 `
 const SinglePortfolio = () => {
-    const { id } = useParams();
-    const {loading, error, data} = useFetch('http://localhost:1337/api/portfolios/' + id + '?populate=image')
+  const { id } = useParams();
+  const { loading, error, data } = useQuery(PORTFOLIO, {
+    variables: { id: id }
+  })
 
 
-    if (loading) return <div>Loading...</div>
-    if (error) return <div>Errorxdf...</div>
+  if (loading) return <div>Loading...</div>
+  if (error) return <div>Errorxdf...</div>
+  console.log(data)
 
-    
-    console.log("dsd",data)
-    console.log(`http://localhost:1337${data.data.attributes.image.data.attributes.url}`)
-    return (
-        <>
-        <h1>SinglePortfolio</h1>
-        <h2>{data.data.attributes.title}</h2>
-        <img alt="description of image" src={`http://localhost:1337${data.data.attributes.image.data.attributes.url}`}/>
-        <span>{data.data.attributes.date}</span>
-        <p>{data.data.attributes.description}</p>
-        </>
-    )
+  return (
+    <>
+      <h1>SinglePortfolio</h1>
+      <h2>{data.portfolio.data.attributes.title}</h2>
+      <img alt="description of image" src={`${process.env.REACT_APP_ADMIN_BASE_URL}${data.portfolio.data.attributes.image.data.attributes.url}`}/>
+      <span>{data.portfolio.data.attributes.date}</span>
+      <p>{data.portfolio.data.attributes.description}</p>
+    </>
+  )
 }
 
 export default SinglePortfolio
