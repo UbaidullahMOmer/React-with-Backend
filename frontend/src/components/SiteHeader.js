@@ -31,7 +31,7 @@ function SiteHeader() {
             <Nav>
                 {
                     data.categories.data.map(item => (
-                        <LinkContainer><Nav.Link key={item.id} to={`/category/${item.id}`}>{item.attributes.name}</Nav.Link></LinkContainer>
+                        <LinkContainer key={item.id} to={`/category/${item.id}`}><Nav.Link >{item.attributes.name}</Nav.Link></LinkContainer>
                     ))
                 }
             </Nav>
