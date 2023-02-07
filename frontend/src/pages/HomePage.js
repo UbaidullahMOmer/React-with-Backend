@@ -3,6 +3,7 @@ import useFetch from '../hooks/useFetch'
 import { Link } from "react-router-dom"
 import { useQuery, gql } from '@apollo/client'
 import { Row, Col, Card, Container } from "react-bootstrap"
+import HeroScetion from './components/HeroSection'
 
 const PORTFOLIOS = gql`
     query GetPortfolios{
@@ -36,6 +37,7 @@ const HomePage = () => {
     <div>
       <>
         <Container>
+          <HeroScetion/>
           <Row>
             {data.portfolios.data.map(item => (
               <Col key={item.id} md={4} className="mb-5">
