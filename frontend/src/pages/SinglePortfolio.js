@@ -39,7 +39,7 @@ const SinglePortfolio = () => {
     <>
       <h1>SinglePortfolio</h1>
       <h2>{data.portfolio.data.attributes.title}</h2>
-      <img alt="description of image" src={`${process.env.REACT_APP_ADMIN_BASE_URL}${data.portfolio.data.attributes.image.data.attributes.url}`}/>
+      <img alt="description of " src={`${process.env.REACT_APP_ADMIN_BASE_URL}${data.portfolio.data.attributes.image.data.attributes.url}`}/>
       <span>{data.portfolio.data.attributes.date}</span>
       <p>{data.portfolio.data.attributes.description}</p>
     </>
