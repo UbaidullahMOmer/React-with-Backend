@@ -1,7 +1,7 @@
 import React from 'react'
 import {Navbar,Nav} from "react-bootstrap"
 import { gql, useQuery } from '@apollo/client'
-
+import {LinkContainer} from "react-router-bootstrap"
 const CATEGORIES = gql`
     query GetCategories{
         categories{
@@ -31,7 +31,7 @@ function SiteHeader() {
             <Nav>
                 {
                     data.categories.data.map(item => (
-                        <Nav.Link key={item.id} href={`/category/${item.id}`}>{item.attributes.name}</Nav.Link>
+                        <LinkContainer><Nav.Link key={item.id} to={`/category/${item.id}`}>{item.attributes.name}</Nav.Link></LinkContainer>
                     ))
                 }
             </Nav>
