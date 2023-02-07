@@ -8,12 +8,14 @@ import Tag from "./pages/Tag"
 import Category from "./pages/Category"
 import { ApolloProvider } from '@apollo/client';
 import client from './utils/apoloClient';
+import SiteHeader from './components/SiteHeader';
 function App() {
 
   return (
     <div className="App">
       <BrowserRouter>
         <ApolloProvider client={client}>
+          <SiteHeader/>
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/tag/:id' element={<Tag />} />
