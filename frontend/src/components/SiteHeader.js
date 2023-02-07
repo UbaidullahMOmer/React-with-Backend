@@ -2,12 +2,12 @@ import React from 'react'
 import {Navbar,Nav} from "react-bootstrap"
 import { gql, useQuery } from '@apollo/client'
 
-const CATEGORY = gql`
+const CATEGORIES = gql`
     query GetCategories{
         categories{
-            deta{
+            data{
                 id,
-                attributes{
+                attributes {
                     name,
                     slug
                 }
@@ -15,12 +15,13 @@ const CATEGORY = gql`
         }
     }
 `
-
+ 
 function SiteHeader() {
     const {loading, error, data} = useQuery(CATEGORIES)
 
     if(loading) return <div><h1>Loading...</h1></div>
-    if(loading) return <div><h1>Error...</h1></div>
+    if(error) return <div><h1>Error...</h1></div>
+    console.log(data)
   return (
     <>
     <Navbar className="py-3"  sticky='top' collapseOnSelect expand="lg">
@@ -30,7 +31,7 @@ function SiteHeader() {
             <Nav>
                 {
                     data.categories.data.map(item => (
-                        
+                        <Nav.Link key={item.id} href={`/category/${item.id}`}>{item.attributes.name}</Nav.Link>
                     ))
                 }
             </Nav>
