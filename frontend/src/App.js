@@ -18,7 +18,7 @@ function App() {
         <ApolloProvider client={client}>
           <Container style={{
             background: 'linear-gradient(72.3deg, rgb(29, 7, 64) 8.5%, rgb(253, 105, 139) 92.2%)',
-            height: '94vh',
+            height: '100vh',
             maxWidth: '100%'
           }}>
           <SiteHeader/>
