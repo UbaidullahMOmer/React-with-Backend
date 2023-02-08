@@ -29,6 +29,13 @@ query GetPortfolios($id: ID!) {
           slug
         }
       }
+     },
+     gallery{
+      data{
+        attributes{
+          url
+        }
+      }
      }
     }
   }
