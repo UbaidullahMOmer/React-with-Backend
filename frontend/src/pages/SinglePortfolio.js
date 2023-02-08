@@ -70,8 +70,8 @@ const SinglePortfolio = () => {
         {
           <Link to={`/portfolio/${data.portfolio.data.id}`}><Card.Img id="featued-img" src={`${process.env.REACT_APP_ADMIN_BASE_URL}${data.portfolio.data.attributes.image.data.attributes.url}`}></Card.Img></Link>
         }
-        <h5></h5>
-        <p style={{padding: "10px", paddingTop: "20px"}}>{data.portfolio.data.attributes.description}</p>
+        <h3 style={{padding: "10px", paddingTop: "20px"}}>{`${data.portfolio.data.attributes.title}`}</h3>
+        <p style={{padding: "5px"}}>{data.portfolio.data.attributes.description}</p>
         </Col>
       </Row>
     </div>
