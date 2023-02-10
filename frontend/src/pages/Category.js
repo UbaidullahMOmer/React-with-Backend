@@ -44,12 +44,13 @@ const Category = () => {
   if (error) return <div>Error... </div>
 
 
-console.log("sdfsdfsdf",id)
+console.log("sdfsdfsdf",data)
 
 return(
   <div>
     <Container>
-    <h1>{data.category.data.attributes.name}</h1>
+      <h1>Category relavent post</h1>
+    <h3>{data.category.data.attributes.name} - {data.category.data.attributes.portfolios.data.length}</h3>
     <Row>
       {data.category.data.attributes.portfolios.data.map(item => (
         <Col key={item.id} md={4} className='mb-5'>

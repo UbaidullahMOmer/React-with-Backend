@@ -60,7 +60,8 @@ console.log("sdfsdfsdf",id)
 return(
   <div>
     <Container>
-    <h1>{data.tag.data.attributes.name}</h1>
+      <h1>Tag relavent post</h1>
+    <h3>{data.tag.data.attributes.name} - {data.tag.data.attributes.portfolios.data.length}</h3>
     <Row>
       {data.tag.data.attributes.portfolios.data.map(item => (
         <Col key={item.id} md={4} className='mb-5'>
