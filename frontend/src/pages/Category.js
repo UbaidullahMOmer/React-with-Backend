@@ -4,8 +4,8 @@ import {Row, Container} from 'react-bootstrap'
 import {useParams} from 'react-router-dom'
 import PostGrid from './components/PostGrid'
 const CATEGORIES = gql`
-query GetCategory ($id:ID!) {
-  category (id:$id){
+query GetCategories ($slug: String!) {
+  categories(filters: {slug: {eq: $slug}}){
     data{
       id,
       attributes{
@@ -18,6 +18,7 @@ query GetCategory ($id:ID!) {
               title,
               description,
               date,
+              slug,
               image{
                 data{
                   attributes{
@@ -44,9 +45,9 @@ query GetCategory ($id:ID!) {
 `
 
 const Category = () => {
-  const {id} = useParams();
+  const {slug} = useParams();
   const {loading, error, data} = useQuery(CATEGORIES, {
-    variables: {id: id}
+    variables: {slug: slug}
   })
 
   if (loading) return <div>Loading...</div>
@@ -60,9 +61,9 @@ return(
     <Container>
       
       <h1><span className="bg-tertiary-color text-primary-color">Category relavent post</span></h1>
-    <h3 className="text-tertiary-color">{data.category.data.attributes.name} - {data.category.data.attributes.portfolios.data.length}</h3>
+    <h3 className="text-tertiary-color">{data.categories.data[0].attributes.name} - {data.categories.data[0].attributes.portfolios.data.length}</h3>
     <Row>
-      {data.category.data.attributes.portfolios.data.map(item => (
+      {data.categories.data[0].attributes.portfolios.data.map(item => (
           <PostGrid item={item}/>
       ))}
     </Row>

@@ -16,8 +16,8 @@ import { useParams} from 'react-router-dom'
 import PostGrid from './components/PostGrid'
 
 const TAG = gql`
-query GetTag ($id:ID!) {
-  tag (id:$id){
+query GetTags($slug: String!) {
+  tags(filters: {slug: {eq: $slug}}) {
     data{
       id,
       attributes{
@@ -30,6 +30,7 @@ query GetTag ($id:ID!) {
               title,
               description,
               date,
+              slug,
               image{
                 data{
                   attributes{
@@ -56,24 +57,24 @@ query GetTag ($id:ID!) {
 `
 
 const Tag = () => {
-  const {id} = useParams();
+  const {slug} = useParams();
   const {loading, error, data} = useQuery(TAG, {
-    variables: {id: id}
+    variables: {slug: slug}
   })
 
   if (loading) return <div>Loading...</div>
   if (error) return <div>Error... </div>
 
 
-console.log("sdfsdfsdf",id)
+console.log("sdfsdfsdf",slug)
 
 return(
   <div>
     <Container>
       <h1><span className="bg-tertiary-color text-primary-color">Tag relavent post</span></h1>
-    <h3 className="text-tertiary-color">{data.tag.data.attributes.name} - {data.tag.data.attributes.portfolios.data.length}</h3>
+    <h3 className="text-tertiary-color">{data.tags.data[0].attributes.name} - {data.tags.data[0].attributes.portfolios.data.length}</h3>
     <Row>
-      {data.tag.data.attributes.portfolios.data.map(item => (
+      {data.tags.data[0].attributes.portfolios.data.map(item => (
         <PostGrid item={item}/>
       ))}
     </Row>

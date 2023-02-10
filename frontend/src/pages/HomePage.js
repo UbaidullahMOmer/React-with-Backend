@@ -14,6 +14,7 @@ const PORTFOLIOS = gql`
         attributes{
          title,
          description,
+         slug,
          image{
           data{
             attributes {

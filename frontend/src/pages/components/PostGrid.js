@@ -11,14 +11,14 @@ const PostGrid = ({item}) => {
         <span>
             {
                 item.attributes.tags.data.map(tag => (
-                    <Link to={`/tag/${tag.id}` }key={tag.id}>
+                    <Link to={`/tag/${tag.attributes.slug}` }key={tag.id}>
                         <Badge className="bg-primery-color m-2">#{tag.attributes.name}</Badge>
                     </Link>
                 ))
             }
         </span>
         <Card.Title className='mb-2'>{item.attributes.title}</Card.Title>
-        <Card.Subtitle>{item.attributes.description.substring(0, 120)}...<Card.Link as={Link} to={`/portfolio/${item.id}`}>Read More</Card.Link></Card.Subtitle>
+        <Card.Subtitle>{item.attributes.description.substring(0, 120)}...<Card.Link as={Link} to={`/portfolio/${item.attributes.slug}`}>Read More</Card.Link></Card.Subtitle>
       </Card.Body>
     </Card>
   </Col>

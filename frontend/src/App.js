@@ -24,9 +24,9 @@ function App() {
           <SiteHeader/>
           <Routes>
             <Route path='/' element={<HomePage />} />
-            <Route path='/tag/:id' element={<Tag />} />
-            <Route path='/category/:id' element={<Category />} />
-            <Route path='/portfolio/:id' element={<SinglePortfolio />} />
+            <Route path='/tag/:slug' element={<Tag />} />
+            <Route path='/category/:slug' element={<Category />} />
+            <Route path='/portfolio/:slug' element={<SinglePortfolio />} />
           </Routes>
           </Container>
         </ApolloProvider>
