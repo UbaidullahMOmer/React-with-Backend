@@ -1,28 +1,27 @@
 import React from 'react'
 import {gql, useQuery} from '@apollo/client'
 import {Row, Col, Card} from 'react-bootstrap'
-import {Link, useParams} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 
 const CATEGORIES = gql`
-  query GetCategory ($id: ID!) {
-    category (id: $id){
-      data{
-        id,
-        attributes{
-          name,
-          slug,
-          portfolios{
-            data{
-              id,
-              attributes{
-                title,
-                description,
-                date,
-                image{
-                  data{
-                    attributes{
-                      formats
-                    }
+query GetCategory {
+  categories{
+    data{
+      id,
+      attributes{
+        name,
+        slug,
+        portfolios{
+          data{
+            id,
+            attributes{
+              title,
+              description,
+              date,
+              image{
+                data{
+                  attributes{
+                    formats
                   }
                 }
               }
@@ -32,6 +31,7 @@ const CATEGORIES = gql`
       }
     }
   }
+}
 `
 
 const Category = () => {
@@ -42,20 +42,20 @@ const Category = () => {
 
   if (loading) return <div>Loading...</div>
   if (error) return <div>Error...</div>
-}
+
 
 console.log(data)
 
 return(
   <div>
-    <h1>{data.category.data.attributes.name}</h1>
+    <h1>{data.categories.data.attributes.name}</h1>
     <Row>
-      {data.Category.data.attributes.portfolios.data.map(item => (
+      {data.categories.data.attributes.portfolios.data.map(item => (
         <Col key={item.id} md={4} className='mb-5'>
         </Col>
       ))}
     </Row>
   </div>
 )
-
+}
 export default Category; 
