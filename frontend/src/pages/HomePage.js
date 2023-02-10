@@ -41,7 +41,7 @@ const HomePage = () => {
           <Row>
             {data.portfolios.data.map(item => (
               <Col key={item.id} md={4} className="mb-5">
-                <Card className='card-img h-100'>
+                <Card style={{  boxShadow: "0 6px 10px 0 rgba(0,0,0,0.2)"}} className='card-img h-100'>
                   <Card.Img variant='top' src={`${process.env.REACT_APP_ADMIN_BASE_URL}${item.attributes.image.data.attributes.url}`}></Card.Img>
                   <Card.Body className='p-3'>
                     <Card.Title className='mb-2'>{item.attributes.title}</Card.Title>
