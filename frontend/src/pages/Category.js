@@ -1,11 +1,11 @@
 import React from 'react'
 import {gql, useQuery} from '@apollo/client'
-// import {Row, Col, Card} from 'react-bootstrap'
+import {Row, Col, Card} from 'react-bootstrap'
 import {useParams} from 'react-router-dom'
 
 const CATEGORIES = gql`
-query GetCategory ($id: ID!) {
-  category (id: $id){
+query GetCategory ($id:ID!) {
+  category (id:$id){
     data{
       id,
       attributes{
@@ -35,7 +35,7 @@ query GetCategory ($id: ID!) {
 `
 
 const Category = () => {
-  const {id} = useParams
+  const {id} = useParams();
   const {loading, error, data} = useQuery(CATEGORIES, {
     variables: {id: id}
   })
@@ -44,17 +44,17 @@ const Category = () => {
   if (error) return <div>Error... </div>
 
 
-console.log(data)
+console.log("sdfsdfsdf",id)
 
 return(
   <div>
     <h1>{data.category.data.attributes.name}</h1>
-    {/* <Row>
+    <Row>
       {data.categories.data.attributes.portfolios.data.map(item => (
         <Col key={item.id} md={4} className='mb-5'>
         </Col>
       ))}
-    </Row> */}
+    </Row>
   </div>
 )
 }
