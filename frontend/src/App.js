@@ -13,6 +13,31 @@ import { Container } from 'react-bootstrap';
 function App() {
 
   return (
+    // <div className="App">
+    //   <BrowserRouter>
+    //     <ApolloProvider client={client}>
+    //       <Container style={{
+    //         background: 'linear-gradient(72.3deg, rgb(29, 7, 64) 8.5%, rgb(253, 105, 139) 92.2%)',
+    //         height: '100vh',
+    //         maxWidth: '100%'
+    //       }}>
+    //       <SiteHeader/>
+    //       <Routes>
+    //         <Route path='/' element={<HomePage />} />
+    //         <Route path='/tag/:slug' element={<Tag />} />
+    //         <Route path='/category/:slug' element={<Category />} />
+    //         <Route path='/portfolio/:slug' element={<SinglePortfolio />} />
+    //       </Routes>
+    //       </Container>
+    //     </ApolloProvider>
+    //   </BrowserRouter>
+    // </div>
+    Blogwebsite()
+  );
+}
+function Blogwebsite() {
+
+  return (
     <div className="App">
       <BrowserRouter>
         <ApolloProvider client={client}>

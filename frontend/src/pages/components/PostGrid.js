@@ -5,7 +5,7 @@ import { Link, } from "react-router-dom"
 const PostGrid = ({item}) => {
   return (
     <Col key={item.id} md={4} className="mb-5">
-    <Card style={{  boxShadow: "0 6px 10px 0 rgba(0,0,0,0.2)"}} className='card-img h-100'>
+    <Card style={{  boxShadow: "0 8px 12px 0 rgba(0,0,0,0.2)"}} className='card-img h-100'>
       <Card.Img variant='top' src={`${process.env.REACT_APP_ADMIN_BASE_URL}${item.attributes.image.data.attributes.url}`}></Card.Img>
       <Card.Body className='p-3'>
         <span>
