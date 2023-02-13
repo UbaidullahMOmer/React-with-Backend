@@ -1,0 +1,14 @@
+.re{
+    transition: 1.2s;
+}
+.re:hover{
+    transform: scale(1.1);
+    transform-origin: 50% 50%;
+}
+.ro{
+    transition: 0.8s;
+}
+.ro:hover{
+    transform: scale(1.1);
+    transform-origin: 50% 50%;
+}
