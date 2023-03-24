@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/index.ts"],"sourcesContent":["export * from './interfaces.js'\nexport * from './createDragDropManager.js'\n"],"names":[],"mappings":"AAAA,cAAc,iBAAiB,CAAA;AAC/B,cAAc,4BAA4B,CAAA"}

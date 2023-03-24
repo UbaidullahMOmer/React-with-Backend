@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/index.ts"],"sourcesContent":["export * from './interfaces.js'\nexport * from './createDragDropManager.js'\n"],"names":[],"mappings":"AAAA;;;;;oDAAc,iBAAiB;AAA/B,YAAA,aAA+B;;;2CAA/B,aAA+B;;;;mBAA/B,aAA+B;;;EAAA;+DACjB,4BAA4B;AAA1C,YAAA,wBAA0C;;;2CAA1C,wBAA0C;;;;mBAA1C,wBAA0C;;;EAAA"}
